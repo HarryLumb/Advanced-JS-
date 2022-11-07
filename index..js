@@ -10,13 +10,16 @@ const firstAlbum = () => {
   const firstContainer = document.querySelector(".row1");
   console.log(firstContainer);
 
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=justin-beiber", options)
+  fetch(
+    "https://deezerdevs-deezer.p.rapidapi.com/search?q=justin-beiber",
+    options
+  )
     .then((response) => response.json())
     .then((songList) => {
       const songData = songList.data;
       console.log(songData);
 
-      // console.log(songData)
+    
       for (song of songData) {
         firstContainer.innerHTML += `
                                 <div class="col-sm-4 col-md-4 col-lg-3 mb-3">
@@ -41,7 +44,7 @@ const secondAlbum = () => {
     .then((response) => response.json())
     .then((songList) => {
       const songData = songList.data;
-      console.log(songData)
+      console.log(songData);
 
       // console.log(songData)
       for (song of songData) {
