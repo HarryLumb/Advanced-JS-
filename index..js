@@ -16,10 +16,9 @@ const firstAlbum = () => {
   )
     .then((response) => response.json())
     .then((songList) => {
+      console.log(songList);
       const songData = songList.data;
-      console.log(songData);
 
-    
       for (song of songData) {
         firstContainer.innerHTML += `
                                 <div class="col-sm-4 col-md-4 col-lg-3 mb-3">
@@ -95,3 +94,57 @@ window.onload = () => {
   secondAlbum();
   thirdAlbum();
 };
+
+const beiber = document.querySelector(".beiber");
+const barbie = document.querySelector(".barbie");
+const sClub = document.querySelector(".sClub");
+
+beiber.addEventListener("click", () => {
+  fetch(
+    "https://deezerdevs-deezer.p.rapidapi.com/search?q=justin-beiber",
+    options
+  )
+    .then((response) => response.json())
+    .then((songList) => {
+      const songData = songList.data;
+      const beiberList = document.querySelector(".dropdown-beiber");
+      for (song of songData) {
+        const li = document.createElement("li");
+        li.innerHTML = `${song.title}`;
+
+        li.classList.add("dropdown-item");
+        beiberList.appendChild(li);
+      }
+    });
+});
+
+barbie.addEventListener("click", () => {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=barbie", options)
+    .then((response) => response.json())
+    .then((songList) => {
+      const songData = songList.data;
+      const beiberList = document.querySelector(".dropdown-barbie");
+      for (song of songData) {
+        const li = document.createElement("li");
+        li.innerHTML = `${song.title_short}`;
+
+        li.classList.add("dropdown-item");
+        beiberList.appendChild(li);
+      }
+    });
+});
+sClub.addEventListener("click", () => {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=s-club-7", options)
+    .then((response) => response.json())
+    .then((songList) => {
+      const songData = songList.data;
+      const beiberList = document.querySelector(".dropdown-sClub");
+      for (song of songData) {
+        const li = document.createElement("li");
+        li.innerHTML = `${song.title_short}`;
+
+        li.classList.add("dropdown-item");
+        beiberList.appendChild(li);
+      }
+    });
+});
