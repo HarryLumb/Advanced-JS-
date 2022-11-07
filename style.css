@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    background-color: bisque;
+}
+
+.card{
+    border-radius: 5px;
+}
+
+img{
+    border-radius: 0px;
+}
+
+.card{
+    position: relative;
+}
+.btn{
+    position: absolute;
+    bottom:10px;
+   
+    
+    
+}
